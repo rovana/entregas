@@ -28,7 +28,7 @@ public class EmpresaImp implements Empresa{
 		return resultado;
 	}
 	
-	public int totalFolhaPagamento(){
+	public int totalFolhaPgto(){
 		int salario = 0;
 		
 		for (Funcionario f: mapFuncionario.values()){
@@ -36,7 +36,5 @@ public class EmpresaImp implements Empresa{
 		}
 		return salario;
 	}
-	
-
 
 }

@@ -22,9 +22,8 @@ public class EmpresaTest {
 	@Before
 	public void setUp() throws Exception {
 
-		this.empresa = null; // substituir por new EmpresaImp();
-		this.factory = null; // colocar seu
-								// FuncionarioFactoryImpl.getInstancia();
+		this.empresa = new EmpresaImp();
+		this.factory = FuncionarioFactoryImp.getInstancia();
 	}
 
 	@After
