@@ -8,14 +8,21 @@ import java.util.Comparator;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.HashMap;
 
+import br.com.senacrs.alp.aulas.trabalho9.FuncionarioImp;
 import br.com.senacrs.alp.aulas.trabalho9.Funcionario;
 
 public class EmpresaImpl implements Empresa {
 	
 	private Map<String, Funcionario> funcionarios = null;
 	
-
+	private List<Funcionario> listaFuncionario = new LinkedList<Funcionario>();
+	public Comparator <Funcionario> OrdenarNomeFuncionario = new OrdenarNomeFuncionario();
+	private Comparator <Funcionario> OrderDecrescenteSalarioFuncionario = new OrderDecrescenteSalarioFuncionario();
+	private Comparator <Funcionario> OrderCrescenteSalarioFuncionario = new OrderCrescenteSalarioFuncionario();
+	
+	
 	@Override
 	public void adicionaFuncionario(Funcionario funcionario) {
 		
@@ -57,36 +64,24 @@ public class EmpresaImpl implements Empresa {
 	@Override
 	public List<Funcionario> ordemCrescenteSalario() {
 		
-		LinkedList<Funcionario> lista = null;
-		lista = new LinkedList<Funcionario>(funcionarios.values());
-		OrdenarSalarioFuncionario compara = null;
-		compara = OrdenarSalarioFuncionario();
-		Collections.sort(lista, compara);
+		Collections.sort(listaFuncionario, OrderCrescenteSalarioFuncionario);
 				
-		return lista;
+		return listaFuncionario;
 	}
 
 	@Override
 	public List<Funcionario> ordemDecrescenteSalario() {
 
-		LinkedList<Funcionario> lista = null;
-		lista = new LinkedList<Funcionario>(funcionarios.values());
-		OrdenarSalarioFuncionario compara = null;
-		compara = OrdenarSalarioFuncionario();
-		compara = setOrdenar(1);
-		Collections.sort(lista, compara);
+		Collections.sort(listaFuncionario, OrderDecrescenteSalarioFuncionario);
 		
-		return lista;
+		return listaFuncionario;
 	}
 
 	@Override
 	public List<Funcionario> ordemAlfabetica() {
-		LinkedList<Funcionario> lista = null;
-		lista = new LinkedList<Funcionario>(funcionarios.values());
-		OrdenarFuncionarioNome compara = null;
-		compara = OrdenarSalarioFuncionario();
-		Collections.sort(lista,compara);
-		return lista;
+		Collections.sort(listaFuncionario, OrdenarNomeFuncionario);
+		
+		return listaFuncionario;
 	}
 	
 	
