@@ -4,16 +4,11 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
 import java.util.LinkedList;
-import java.util.List;
+
 
 public class GerenciadorDeArquivo {
 
@@ -67,6 +62,8 @@ public class GerenciadorDeArquivo {
 		return linha;
 	}
 
+	
+	
 	public String[] leitura(BufferedReader input) {
 
 		LinkedList<String> lista = new LinkedList<String>();
@@ -115,6 +112,7 @@ public class GerenciadorDeArquivo {
 			for (int i = 0; i < conteudo.length; i++) {
 				output.write(conteudo[i]);
 				output.newLine();
+				output.flush();
 			}
 
 		} catch (IOException e) {
