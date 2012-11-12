@@ -1,0 +1,2 @@
+root_dir = ./diretorio/subdiretorio
+port = 12345
